@@ -8,15 +8,44 @@ export default function Planner({ onBack }: { onBack: () => void }) {
   const [days, setDays] = useState('')
   const [locationName, setLocationName] = useState('')
 
-  // India-only dataset
+  // India-only exhaustive dataset (All States and UTs)
   const locationsData: Record<string, string[]> = {
-    'Andhra Pradesh': ['Vizag', 'Araku Valley', 'Vijayawada', 'Tirupati'],
-    'Kerala': ['Munnar', 'Alleppey', 'Wayanad', 'Kochi'],
-    'Maharashtra': ['Mumbai', 'Pune', 'Lonavala', 'Mahabaleshwar'],
-    'Rajasthan': ['Jaipur', 'Udaipur', 'Jaisalmer', 'Jodhpur'],
-    'Himachal Pradesh': ['Manali', 'Shimla', 'Dharamshala', 'Kasol'],
-    'Goa': ['North Goa', 'South Goa', 'Panaji'],
-    'Karnataka': ['Bengaluru', 'Coorg', 'Mysuru', 'Gokarna']
+    'Andhra Pradesh': ['Vizag', 'Araku Valley', 'Vijayawada', 'Tirupati', 'Amaravati'],
+    'Arunachal Pradesh': ['Tawang', 'Itanagar', 'Ziro', 'Roing'],
+    'Assam': ['Guwahati', 'Kaziranga', 'Majuli', 'Silchar'],
+    'Bihar': ['Patna', 'Bodh Gaya', 'Nalanda', 'Rajgir'],
+    'Chhattisgarh': ['Raipur', 'Bhilai', 'Jagdalpur', 'Bilaspur'],
+    'Goa': ['North Goa', 'South Goa', 'Panaji', 'Vasco da Gama'],
+    'Gujarat': ['Ahmedabad', 'Surat', 'Gir', 'Kutch', 'Dwarka'],
+    'Haryana': ['Gurugram', 'Faridabad', 'Panipat', 'Kurukshetra'],
+    'Himachal Pradesh': ['Manali', 'Shimla', 'Dharamshala', 'Kasol', 'Dalhousie'],
+    'Jharkhand': ['Ranchi', 'Jamshedpur', 'Deoghar', 'Dhanbad'],
+    'Karnataka': ['Bengaluru', 'Coorg', 'Mysuru', 'Gokarna', 'Hampi'],
+    'Kerala': ['Munnar', 'Alleppey', 'Wayanad', 'Kochi', 'Thiruvananthapuram'],
+    'Madhya Pradesh': ['Bhopal', 'Indore', 'Gwalior', 'Khajuraho', 'Ujjain'],
+    'Maharashtra': ['Mumbai', 'Pune', 'Lonavala', 'Mahabaleshwar', 'Nashik'],
+    'Manipur': ['Imphal', 'Loktak Lake', 'Ukhrul'],
+    'Meghalaya': ['Shillong', 'Cherrapunji', 'Dawki'],
+    'Mizoram': ['Aizawl', 'Lunglei', 'Champhai'],
+    'Nagaland': ['Kohima', 'Dimapur', 'Mokokchung'],
+    'Odisha': ['Bhubaneswar', 'Puri', 'Konark', 'Cuttack'],
+    'Punjab': ['Amritsar', 'Chandigarh', 'Ludhiana', 'Jalandhar'],
+    'Rajasthan': ['Jaipur', 'Udaipur', 'Jaisalmer', 'Jodhpur', 'Pushkar'],
+    'Sikkim': ['Gangtok', 'Pelling', 'Lachung', 'Namchi'],
+    'Tamil Nadu': ['Chennai', 'Ooty', 'Kodaikanal', 'Madurai', 'Coimbatore'],
+    'Telangana': ['Hyderabad', 'Warangal', 'Nizamabad'],
+    'Tripura': ['Agartala', 'Udaipur (Tripura)', 'Unakoti'],
+    'Uttar Pradesh': ['Varanasi', 'Agra', 'Lucknow', 'Mathura', 'Ayodhya'],
+    'Uttarakhand': ['Rishikesh', 'Mussoorie', 'Nainital', 'Dehradun', 'Haridwar'],
+    'West Bengal': ['Kolkata', 'Darjeeling', 'Siliguri', 'Sundarbans'],
+    'Andaman and Nicobar Islands': ['Port Blair', 'Havelock Island', 'Neil Island'],
+    'Chandigarh': ['Chandigarh City'],
+    'Dadra and Nagar Haveli and Daman and Diu': ['Daman', 'Diu', 'Silvassa'],
+    'Delhi': ['New Delhi', 'Old Delhi', 'South Delhi'],
+    'Jammu and Kashmir': ['Srinagar', 'Gulmarg', 'Pahalgam', 'Jammu'],
+    'Ladakh': ['Leh', 'Pangong Tso', 'Nubra Valley'],
+    'Lakshadweep': ['Agatti', 'Bangaram', 'Kavaratti'],
+    'Puducherry': ['Pondicherry', 'Auroville']
   }
 
   const handleGenerate = (e: React.FormEvent) => {
