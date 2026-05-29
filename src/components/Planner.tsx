@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 export default function Planner({ onBack }: { onBack: () => void }) {
   const [step, setStep] = useState<'input' | 'generating' | 'result'>('input')
